@@ -64,6 +64,7 @@ public class Orders {
 		result = prime * result + ((orderID == null) ? 0 : orderID.hashCode());
 		result = prime * result + ((fk_id == null) ? 0 : fk_id.hashCode());
 		result = prime * result + ((fk_itemID == null) ? 0 : fk_itemID.hashCode());
+		result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
 		return result;
 	}
 
@@ -91,10 +92,10 @@ public class Orders {
 				return false;
 		} else if (!fk_itemID.equals(other.fk_itemID))
 			return false;
-		if (quantity == null) {
-			if (other.quantity != null)
+		if (getQuantity() == null) {
+			if (other.getQuantity() != null)
 				return false;
-		} else if (!quantity.equals(other.quantity))
+		} else if (!getQuantity().equals(other.getQuantity()))
 			return false;
 		return true;
 	}
