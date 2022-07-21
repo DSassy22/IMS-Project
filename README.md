@@ -1,5 +1,5 @@
-Coverage: 34%
-# Project Title
+Coverage: 68.8%
+# Inventory Management System
 
 One Paragraph of project description goes here
 
@@ -85,5 +85,5 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Shout out to Ed, Jordan, Chris Y and Andrew M for all your Java help and tips
+* Shout out to moi for all my hard work!
