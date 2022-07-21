@@ -18,12 +18,13 @@
 
 --DROP TABLE IF EXISTS `Orders`;
 
---CREATE TABLE IF NOT EXISTS `Orders` (
- --   `orderID` INT(11) NOT NULL AUTO_INCREMENT,
-   -- `customerID` VARCHAR(40) DEFAULT NULL,
-  --  `date` VARCHAR(40) DEFAULT NULL,
- --   PRIMARY KEY (`orderID`)
---);
+CREATE TABLE IF NOT EXISTS `Orders` (
+  `orderID` INT(11) NOT NULL AUTO_INCREMENT,
+   `fk_id` VARCHAR(40) DEFAULT NULL,
+  `fk_itemID` VARCHAR(40) DEFAULT NULL,
+  `quantity` INT DEFAULT NULL,
+ PRIMARY KEY (`orderID`)
+);
 
 DROP TABLE IF EXISTS `Orderline`;
 
