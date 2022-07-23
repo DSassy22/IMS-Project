@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.controller.Action;
+import com.qa.ims.controller.Action2;
 import com.qa.ims.controller.CrudController;
 import com.qa.ims.controller.CustomerController;
 import com.qa.ims.controller.ItemController;
@@ -84,7 +85,19 @@ public class IMS {
 
 			LOGGER.info(() -> "What would you like to do with " + domain.name().toLowerCase() + ":");
 
-			Action.printActions();
+			if (domain.name().toLowerCase().contentEquals("order")) {
+
+				Action2.printActions();
+				Action2 action = Action2.getAction(utils);
+
+				if (action == Action2.RETURN) {
+					changeDomain = true;
+				} else {
+					doAction2(active, action);
+				}
+			} else
+
+				Action.printActions();
 			Action action = Action.getAction(utils);
 
 			if (action == Action.RETURN) {
@@ -108,6 +121,30 @@ public class IMS {
 			break;
 		case DELETE:
 			crudController.delete();
+			break;
+		case RETURN:
+			break;
+		default:
+			break;
+		}
+	}
+
+	public void doAction2(CrudController<?> active, Action2 action) {
+		switch (action) {
+		case CREATE:
+			active.create();
+			break;
+		case READ:
+			active.readAll();
+			break;
+		case READ_COST:
+			((OrderController) active).read_Cost();
+			break;
+		case UPDATE:
+			active.update();
+			break;
+		case DELETE:
+			active.delete();
 			break;
 		case RETURN:
 			break;

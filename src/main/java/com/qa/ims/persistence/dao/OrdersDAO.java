@@ -64,15 +64,14 @@ public class OrdersDAO implements Dao<Orders> {
 		return null;
 	}
 
-	public Orders readCost(Long orderID) {
+	public Orders read_Cost(Long orderID) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
-				PreparedStatement statement = connection
-						.prepareStatement("SELECT orderID, SUM(price*quantity) AS TotalPrice FROM orders o \r\n"
-								+ "INNER JOIN item i \r\n" + "ON o.fk_itemID = i.itemID\r\n" + "WHERE orderID = ?;");) {
+				PreparedStatement statement = connection.prepareStatement(
+						"SELECT orderID, SUM(price*quantity) AS totalPrice FROM orders o INNER JOIN Item i ON o.fk_itemID = i.itemID WHERE orderID = ?");) {
 			statement.setLong(1, orderID);
 			try (ResultSet resultSet = statement.executeQuery();) {
 				resultSet.next();
-				return modelFromResultSet(resultSet);
+				return modelFromResultSet2(resultSet);
 			}
 		} catch (Exception e) {
 			LOGGER.debug(e);
@@ -81,12 +80,6 @@ public class OrdersDAO implements Dao<Orders> {
 		return null;
 	}
 
-	/**
-	 * Creates a customer in the database
-	 * 
-	 * @param customer - takes in an order object. id will be ignored
-	 *                 (auto_increment)
-	 */
 	@Override
 	public Orders create(Orders order) {
 		try (Connection connection = DBUtils.getInstance().getConnection();
@@ -146,6 +139,12 @@ public class OrdersDAO implements Dao<Orders> {
 		Long fk_itemID = resultSet.getLong("fk_itemID");
 		Long quantity = resultSet.getLong("quantity");
 		return new Orders(orderID, fk_id, fk_itemID, quantity);
+	}
+
+	public Orders modelFromResultSet2(ResultSet resultSet) throws SQLException {
+		Long orderID = resultSet.getLong("orderID");
+		Double TotalPrice = resultSet.getDouble("totalPrice");
+		return new Orders(orderID, TotalPrice);
 	}
 
 }

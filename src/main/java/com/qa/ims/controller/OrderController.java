@@ -7,11 +7,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.ims.persistence.dao.OrderlineDAO;
 import com.qa.ims.persistence.dao.OrdersDAO;
-import com.qa.ims.persistence.domain.Orderline;
 import com.qa.ims.persistence.domain.Orders;
 import com.qa.ims.utils.Utils;
 
-public class OrderController implements CrudController<Orders> {
+public class OrderController implements OrdersCrudController<Orders> {
 
 	public static final Logger LOGGER = LogManager.getLogger();
 
@@ -63,28 +62,26 @@ public class OrderController implements CrudController<Orders> {
 		return orders;
 	}
 
-	public void addItem() {
-		LOGGER.info("Please enter the order ID");
-		Long fk_orderID = utils.getLong();
-		LOGGER.info("Please enter the ID of the item you want to add to the order");
-		Long fk_itemID = utils.getLong();
-		LOGGER.info("Please enter the number of units");
-		Long quantity = utils.getLong();
-		LOGGER.info("Please enter the price of the item");
-		Double price = utils.getDouble();
-		Orderline orderline = orderlineDAO.update(new Orderline(fk_orderID, fk_itemID, quantity, price));
+	@Override
+	public Orders read_Cost() {
+		LOGGER.info("Please enter the id of the order you would like to see the cost of");
+		Long orderID = utils.getLong();
+
+		return ordersDAO.read_Cost(orderID);
 
 	}
-//	public Orders update2() { // delete an item to an order using the orderline table
-//		LOGGER.info("Please enter the id of the order you would like to update");
-//		Long orderID = utils.getLong();
-//		LOGGER.info("Please enter the customer ID");
-//		Long customerID = utils.getLong();
-//		LOGGER.info("Please enter the date of the order in the format YYYY-MM-DD");
-//		String date = utils.getString();
-//		Orders order = OrderlineDAO);
-//		LOGGER.info("Order Updated");
-//		return order;
+
+//	public void addItem() {
+//		LOGGER.info("Please enter the order ID");
+//		Long fk_orderID = utils.getLong();
+//		LOGGER.info("Please enter the ID of the item you want to add to the order");
+//		Long fk_itemID = utils.getLong();
+//		LOGGER.info("Please enter the number of units");
+//		Long quantity = utils.getLong();
+//		LOGGER.info("Please enter the price of the item");
+//		Double price = utils.getDouble();
+//		Orderline orderline = orderlineDAO.update(new Orderline(fk_orderID, fk_itemID, quantity, price));
+//
 //	}
 
 	@Override
@@ -93,13 +90,5 @@ public class OrderController implements CrudController<Orders> {
 		Long orderID = utils.getLong();
 		return ordersDAO.delete(orderID);
 	}
-
-//	public Orders totalCost() {
-//		LOGGER.info("Please enter the ID of an order to see the total cost");
-//		Long orderID = utils.getLong();
-//
-//		return Orders;
-//
-//	}
 
 }

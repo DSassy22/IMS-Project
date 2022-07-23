@@ -20,6 +20,9 @@ public class Orders {
 		this.setQuantity(quantity);
 	}
 
+	public Orders(Long orderID, Double totalPrice) {
+	}
+
 	@Override
 	public String toString() {
 		return "OrderID=" + orderID + ", fk_id=" + fk_id + ", fk_itemID=" + fk_itemID + ", quantity=" + quantity;
