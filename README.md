@@ -1,7 +1,7 @@
-Coverage: 34%
-# Project Title
+Coverage: 68.8%
+# Inventory Management System
 
-One Paragraph of project description goes here
+I was given the task of creating an inventory system where customers, products and orders could be created, read, updated and deleted in a sophisticated and simple system. I was given a starter code to fork and complete the code to provide a fully functional application. 
 
 ## Getting Started
 
@@ -85,5 +85,5 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Shout out to Ed, Jordan, Chris Y and Andrew M for all your Java help and tips
+* Shout out to moi for all my hard work!
