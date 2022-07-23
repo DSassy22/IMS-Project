@@ -1,4 +1,4 @@
-Coverage: 68.8%
+Coverage: 66.3%
 # Inventory Management System
 
 I was given the task of creating an inventory system where customers, products and orders could be created, read, updated and deleted in a sophisticated and simple system. I was given a starter code to fork and complete the code to provide a fully functional application. 
