@@ -5,68 +5,28 @@ I was given the task of creating an inventory system where customers, products a
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+To deploy the application you can fork the code from my github and open using any IDE compatible with JAVA such as Eclipse or IntelliJ.
+There is also an executable JAR file in this repository.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
+To run this application you will need Java 1.8 or later and MySQL 8 or later plus an IDE that can run JAVA applications such as Eclipse.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system. Break down into which tests and what they do
+Test files can be found in the src/test folder. Methods from the domain, dao and controller classes can be tested. The tests are set up against the sql schema and data found in the src/test/resources folder.
+Coverage is currently at 63.3% meaning that this is the percentage of methods being tested.
 
-### Unit Tests 
-
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### Integration Tests 
-Explain what these tests test, why and how to run them
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
+* JAVA version 11
+* JUnit and Mockito for tests
+* MySQL for database
+* Trello for project management
+* Lucid chart for ERD diagrams
+* Github for version control using the dev-feature branch model.
 
 ## Versioning
 
@@ -86,4 +46,4 @@ This project is licensed under the MIT license - see the [LICENSE.md](LICENSE.md
 
 * Hat tip to anyone whose code was used
 * Shout out to Ed, Jordan, Chris Y and Andrew M for all your Java help and tips
-* Shout out to moi for all my hard work!
+* Shout out to me for all my hard work!
