@@ -15,7 +15,7 @@ To run this application you will need Java 1.8 or later and MySQL 8 or later plu
 ## Running the tests
 
 Test files can be found in the src/test folder. Methods from the domain, dao and controller classes can be tested. The tests are set up against the sql schema and data found in the src/test/resources folder.
-Coverage is currently at 63.3% meaning that this is the percentage of methods being tested.
+Coverage is currently at 66.3% meaning that this is the percentage of methods being tested.
 
 
 ## Built With
